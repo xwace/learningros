@@ -33,8 +33,18 @@ int main(int argc, char** argv)
 
 	person_client.call(srv);
 
-	// 显示服务调用结果
+    // 显示服务调用结果
 	ROS_INFO("Show person result : %s", srv.response.result.c_str());
+
+    // ros::service::call(name,request,resonse)方式调用
+	/*learning_service::Person::Request req;
+	learning_service::Person::Response res;
+	req.name = "Tom";
+	req.age  = 20;
+	req.sex  = learning_service::Person::Request::male;
+
+	ros::service::call("/show_person",req,res);
+	ROS_INFO("Show person result : %s", res.result.c_str());*/
 
 	return 0;
 };
