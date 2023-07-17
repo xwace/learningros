@@ -42,6 +42,14 @@ int main(int argc, char** argv)
     // 发送action的goal给服务器端，并且设置回调函数
     client.sendGoal(goal,  &doneCb, &activeCb, &feedbackCb);
 
+    //获取服务端的结果
+    bool finished_before_timeout = client.waitForResult(ros::Duration(20));//设置等待时间:20s内如果没有结果返回则结束
+    if(finished_before_timeout)
+    {
+	action_tutorials::DoDishesResultConstPtr result = client.getResult();
+	std::cout<<"Result: "<<result->total_dishes_cleaned<<std::endl;
+    }
+
     ros::spin();
 
     return 0;
