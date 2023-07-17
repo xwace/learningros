@@ -56,9 +56,12 @@ public:
             r.sleep();
         }
 
+	action_tutorials::DoDishesResult result;
+    	result.total_dishes_cleaned = 10;
+
         // 当action完成后，向客户端返回结果
         ROS_INFO("Dishwasher %d finish working.", goal->dishwasher_id);
-        server.setSucceeded();
+        server.setSucceeded(result);
     }
 };
 
