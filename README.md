@@ -8,3 +8,6 @@ src devel build
 source devel/setup.bash
 进入src:catkin_create_pkg package roscpp rospy dynamic_reconfigure
 package功能包:include,src,rviz,launch,cfg
+
+learning_action_tutorials的用法:
+1.src同级目录打开终端,catkin_make生成server节点client节点以及action对应的头文件
